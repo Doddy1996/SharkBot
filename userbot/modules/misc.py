@@ -131,6 +131,13 @@ async def repo_is_here(wannasee):
         "Click [here](https://github.com/mkaraniya/OpenUserBot) to open OpenUserBot's GitHub page."
     )
 
+    
+@register(outgoing=True, pattern="^.join$")
+async def repo_is_here(wannasee):
+    """ Yuk jadi userbot, bagikan ke seluruh teman gay kalian """
+    await wannasee.edit(
+        "Klik [disini](https://t.me/userbotindo) untuk menuju ke gerbang ke-gay-an."
+    )    
 
 @register(outgoing=True, pattern="^.raw$")
 async def raw(event):
