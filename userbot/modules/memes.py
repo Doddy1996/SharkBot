@@ -854,21 +854,23 @@ async def zal(zgfy):
             continue
 
         for _ in range(0, 3):
-            randint = randint(0, 2)
+            randint = random.randint(0, 2)
 
             if randint == 0:
                 charac = charac.strip() + \
-                    choice(ZALG_LIST[0]).strip()
+                    random.choice(ZALG_LIST[0]).strip()
             elif randint == 1:
                 charac = charac.strip() + \
-                    choice(ZALG_LIST[1]).strip()
+                    random.choice(ZALG_LIST[1]).strip()
             else:
                 charac = charac.strip() + \
-                    choice(ZALG_LIST[2]).strip()
+                    random.choice(ZALG_LIST[2]).strip()
 
         reply_text.append(charac)
 
     await zgfy.edit("".join(reply_text))
+
+
 
 
 @register(outgoing=True, pattern="^.hi$")
