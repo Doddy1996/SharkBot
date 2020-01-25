@@ -8,7 +8,7 @@
 from requests import get, post, exceptions
 import asyncio
 import os
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, LOGS, TMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
 
 DOGBIN_URL = "https://del.dog/"
@@ -32,7 +32,7 @@ async def paste(pstl):
         if message.media:
             downloaded_file_name = await pstl.client.download_media(
                 message,
-                TEMP_DOWNLOAD_DIRECTORY,
+                TMP_DOWNLOAD_DIRECTORY,
             )
             m_list = None
             with open(downloaded_file_name, "rb") as fd:
