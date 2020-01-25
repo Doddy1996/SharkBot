@@ -17,7 +17,7 @@ from oauth2client.file import Storage
 from oauth2client import file, client, tools
 from userbot import (G_DRIVE_CLIENT_ID, G_DRIVE_CLIENT_SECRET,
                      G_DRIVE_AUTH_TOKEN_DATA, GDRIVE_FOLDER_ID, BOTLOG_CHATID,
-                     TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, LOGS)
+                     TMP_DOWNLOAD_DIRECTORY, CMD_HELP, LOGS)
 from userbot.events import register
 from mimetypes import guess_type
 import httplib2
@@ -46,8 +46,8 @@ async def gdrive_upload_function(dryb):
     input_str = dryb.pattern_match.group(1)
     if CLIENT_ID is None or CLIENT_SECRET is None:
         return
-    if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
+    if not os.path.isdir(TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(TMP_DOWNLOAD_DIRECTORY)
         required_file_name = None
     if "|" in input_str:
         url, file_name = input_str.split("|")
@@ -56,10 +56,10 @@ async def gdrive_upload_function(dryb):
         file_name = file_name.strip()
         head, tail = os.path.split(file_name)
         if head:
-            if not os.path.isdir(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head)):
-                os.makedirs(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head))
+            if not os.path.isdir(os.path.join(TMP_DOWNLOAD_DIRECTORY, head)):
+                os.makedirs(os.path.join(TMP_DOWNLOAD_DIRECTORY, head))
                 file_name = os.path.join(head, tail)
-        downloaded_file_name = TEMP_DOWNLOAD_DIRECTORY + "" + file_name
+        downloaded_file_name = TMP_DOWNLOAD_DIRECTORY + "" + file_name
         downloader = SmartDL(url, downloaded_file_name, progress_bar=False)
         downloader.start(blocking=False)
         c_time = time.time()
@@ -117,7 +117,7 @@ async def gdrive_upload_function(dryb):
             c_time = time.time()
             downloaded_file_name = await dryb.client.download_media(
                 await dryb.get_reply_message(),
-                TEMP_DOWNLOAD_DIRECTORY,
+                TMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop(
                 ).create_task(progress(d, t, dryb, c_time, "Downloading...")))
         except Exception as e:
