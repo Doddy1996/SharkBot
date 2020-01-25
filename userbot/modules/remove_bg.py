@@ -11,7 +11,7 @@ import os
 import requests
 from userbot.events import register
 from telethon.tl.types import MessageMediaPhoto
-from userbot import CMD_HELP, REM_BG_API_KEY, TEMP_DOWNLOAD_DIRECTORY
+from userbot import CMD_HELP, REM_BG_API_KEY, TMP_DOWNLOAD_DIRECTORY
 
 
 @register(outgoing=True, pattern="^.rbg(?: |$)(.*)")
@@ -33,7 +33,7 @@ async def kbg(remob):
                     reply_message.media, MessageMediaPhoto
             ) or "image" in reply_message.media.document.mime_type.split('/'):
                 downloaded_file_name = await remob.client.download_media(
-                    reply_message, TEMP_DOWNLOAD_DIRECTORY)
+                    reply_message, TMP_DOWNLOAD_DIRECTORY)
                 await remob.edit("`Removing background from this image..`")
                 output_file_name = await ReTrieveFile(downloaded_file_name)
                 os.remove(downloaded_file_name)
