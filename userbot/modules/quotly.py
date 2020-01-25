@@ -23,10 +23,10 @@ async def _(event):
        await event.edit("```Reply to actual users message.```")
        return
     await event.edit("```Making a Quote```")
-    async with event.conversation(chat) as conv:
+    async with events.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1031952739))
-              await event.forward_messages(chat, reply_message)
+              await events.forward_messages(chat, reply_message)
               response = await response 
           except YouBlockedUserError: 
               await event.reply("```Please unblock @QuotLyBot and try again```")
@@ -35,7 +35,7 @@ async def _(event):
              await event.edit("```Can you kindly disable your forward privacy settings for good?```")
           else: 
              await event.delete()
-             await event.forward_messages(event.chat_id, response.message)
+             await events.forward_messages(event.chat_id, response.message)
 
 CMD_HELP.update({
         "adzan": ".q or .q <number>\
