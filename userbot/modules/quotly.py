@@ -22,7 +22,7 @@ async def _(event):
        await event.edit("```Reply to actual users message.```")
        return
     await event.edit("```Making a Quote```")
-    async with register.conversation(chat) as conv:
+    async with bot.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1031952739))
               await bot.forward_messages(chat, reply_message)
