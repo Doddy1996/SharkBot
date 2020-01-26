@@ -4,6 +4,7 @@
 # you may not use this file except in compliance with the License.
 
 import asyncio
+import json
 import math
 import os
 import time
@@ -25,7 +26,7 @@ import subprocess
 from userbot.modules.upload_download import progress, humanbytes, time_formatter
 
 # Path to token json file, it should be in same directory as script
-G_DRIVE_TOKEN_FILE = "./auth_token.txt"
+G_DRIVE_TOKEN_FILE = TMP_DOWNLOAD_DIRECTORY + "./auth_token.txt"
 # Copy your credentials from the APIs Console
 CLIENT_ID = G_DRIVE_CLIENT_ID
 CLIENT_SECRET = G_DRIVE_CLIENT_SECRET
