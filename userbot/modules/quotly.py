@@ -1,12 +1,11 @@
-"""QuotLy: Avaible commands: .q"""
 import datetime
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
-from userbot import CMD_HELP
+from userbot import bot, CMD_HELP
 from userbot.events import register
 
-@register(pattern="^.q(?: |$)(.*)", outgoing=True)
+@register(outgoing=True, pattern="^.q(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return 
@@ -23,10 +22,10 @@ async def _(event):
        await event.edit("```Reply to actual users message.```")
        return
     await event.edit("```Making a Quote```")
-    async with events.conversation(chat) as conv:
+    async with register.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1031952739))
-              await events.forward_messages(chat, reply_message)
+              await bot.forward_messages(chat, reply_message)
               response = await response 
           except YouBlockedUserError: 
               await event.reply("```Please unblock @QuotLyBot and try again```")
@@ -34,10 +33,11 @@ async def _(event):
           if response.text.startswith("Hi!"):
              await event.edit("```Can you kindly disable your forward privacy settings for good?```")
           else: 
-             await event.delete()
-             await events.forward_messages(event.chat_id, response.message)
+             await event.delete()   
+             await bot.forward_messages(event.chat_id, response.message)
 
 CMD_HELP.update({
-        "adzan": ".q or .q <number>\
-        \nUsage: Enhance ur text to sticker.\n"
+        "quotly": 
+        ".q \
+          \nUsage: Enhance ur text to sticker.\n"
     })
