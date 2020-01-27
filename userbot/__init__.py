@@ -55,22 +55,22 @@ API_HASH = os.environ.get("API_HASH", "bd9d1fd581c416a0d894b790f706dad2")
 
 
 # Userbot Session String
-STRING_SESSION = os.environ.get("STRING_SESSION", None)
+STRING_SESSION = os.environ.get("STRING_SESSION", "1BVtsOIwBuymXiT2FlQcys9-qUObfGW7peSvi6t6U3s-9CuMgqpEdlXURfuzHV1Eq76LifYmCyNzsh-8jc2eOCCDiQrytNTq9DVnyCZTvqYuW1VgV75ZLY2anN_U5j2Wn9kTucFv5Zc-3zEMPmbcTcL2GtqnVCcpDpgY7JFXF4S5bRXfCZz81ji1MwkYzmxbekGirinjlKCNGQxnp1OXeYpic1p41MnYm1gYBJonXLgK5B_DAAaD0WxH71x6hbyGeaAKd_loS7DeRtujUTaA48YJER3ivF2I28ixCcHgcxjkCquG2Z_flvSheN7CnVC_g2qzgDNrmpCQhnMUxP_d66j1h2mmxtqQ=")
 
 # Logging channel/group ID configuration.
-BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
+BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", "1282984655"))
 
 # Userbot logging feature switch.
-BOTLOG = sb(os.environ.get("BOTLOG", "False"))
-LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
+BOTLOG = sb(os.environ.get("BOTLOG", "True"))
+LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "True"))
 
 # Bleep Blop, this is a bot ;)
-PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
+PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "True"))
 
 # Heroku Credentials for updater.
-HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
-HEROKU_APPNAME = os.environ.get("HEROKU_APPNAME", None)
-HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", None)
+HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "True"))
+HEROKU_APPNAME = os.environ.get("HEROKU_APPNAME", "zank forza")
+HEROKU_APIKEY = os.environ.get("HEROKU_APIKEY", "23d86197-4e73-4915-9a8d-31b353021360")
 
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
@@ -78,7 +78,7 @@ UPSTREAM_REPO_URL = os.environ.get(
     "https://github.com/mkaraniya/OpenUserBot.git")
 
 # Console verbose logging
-CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
+CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "True"))
 
 # SQL Database URI
 DB_URI = os.environ.get("DATABASE_URL", None)
@@ -111,10 +111,10 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", None)
 
 # Default .alive name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "zankzdod")
 
 # Time & Date - Country and Time Zone
-COUNTRY = str(os.environ.get("COUNTRY", ""))
+COUNTRY = str(os.environ.get("COUNTRY", "Indonesia"))
 TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 
 # Clean Welcome
