@@ -17,6 +17,7 @@ import math
 
 from pySmartDL import SmartDL
 import asyncio
+from asyncio import sleep
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from telethon.tl.types import DocumentAttributeVideo
@@ -156,6 +157,8 @@ async def download(target_file):
     else:
         await target_file.edit(
             "Reply to a message to download to my local server.")
+        await sleep(3)
+        await target_file.delete()
 
 
 @register(pattern=r".uploadir (.*)", outgoing=True)
@@ -232,6 +235,8 @@ async def uploadir(udir_event):
             "Uploaded {} files successfully !!".format(uploaded))
     else:
         await udir_event.edit("404: Directory Not Found")
+        await sleep(3)
+        await udir_event.delete()
 
 
 @register(pattern=r".upload (.*)", outgoing=True)
@@ -256,6 +261,8 @@ async def upload(u_event):
         await u_event.edit("Uploaded successfully !!")
     else:
         await u_event.edit("404: File Not Found")
+        await sleep(3)
+        await u_event.delete()
 
 
 def get_video_thumb(file, output=None, width=90):
